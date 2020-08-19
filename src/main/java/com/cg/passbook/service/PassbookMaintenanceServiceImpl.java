@@ -1,13 +1,19 @@
-package com.pbs.service;
+package com.cg.passbook.service;
+/******************************************
+- File Name      : PassbookMaintenanceServiceImpl.java
+- Author           : Capgemini
+- Creation Date    : 11-08-2020
+- Description      : This Service class implements all the methods defined in the interface.
+ ******************************************/
 import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pbs.dao.PassbookMaintenanceDAO;
-import com.pbs.model.Account;
-import com.pbs.model.Transactions;
+import com.cg.passbook.dao.PassbookMaintenanceDAO;
+import com.cg.passbook.model.Account;
+import com.cg.passbook.model.Transactions;
 
 
 @Service
@@ -46,7 +52,14 @@ public class PassbookMaintenanceServiceImpl implements PassbookMaintenanceServic
 	public void updatelastUpdated(String accountId) {
 		 dao.update(accountId,date);
 	}
-
+	 @Override
+	 public Account saveAccount(Account acc) {
+		 return dao.save(acc);
+	 }
+	 @Override
+	 public Transactions saveTransactions(Transactions trans) {
+		 return dao.save(trans);
+	 }
 
 	
 }

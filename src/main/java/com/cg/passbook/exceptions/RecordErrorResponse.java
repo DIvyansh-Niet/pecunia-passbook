@@ -1,4 +1,10 @@
-package com.pbs.exceptions;
+package com.cg.passbook.exceptions;/******************************************
+- File Name      : RecordErrorResponse.java
+- Author           : Capgemini
+- Creation Date    : 11-08-2020
+- Description      : This Exception class act as a pojo class for error messages.
+ ******************************************/
+
 
 @SuppressWarnings("serial")
 public class RecordErrorResponse extends Exception {

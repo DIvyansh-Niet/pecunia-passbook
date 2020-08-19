@@ -1,4 +1,10 @@
-package com.pbs.dao;
+package com.cg.passbook.dao;
+/******************************************
+- File Name      : PassbookMaintenanceDAO.java
+- Author           : Capgemini
+- Creation Date    : 11-08-2020
+- Description      : This Interface contains all the queries to be implemented in our module.
+ ******************************************/
 import java.sql.Date;
 import java.util.List;
 
@@ -7,8 +13,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.pbs.model.Account;
-import com.pbs.model.Transactions;
+import com.cg.passbook.model.Account;
+import com.cg.passbook.model.Transactions;
 
 @Repository 
 public interface PassbookMaintenanceDAO extends JpaRepository<Account, String> {
@@ -26,6 +32,11 @@ public interface PassbookMaintenanceDAO extends JpaRepository<Account, String> {
 	@Modifying
 	@Query("update Account set lastUpdated=?2 where  account_Id=?1")
 	void update(String accountId, Date date);
+
+	Transactions save(Transactions trans);
+
+	
+	
 
 	
 

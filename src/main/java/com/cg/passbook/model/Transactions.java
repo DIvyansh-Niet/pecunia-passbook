@@ -1,4 +1,10 @@
-package com.pbs.model;
+package com.cg.passbook.model;
+/******************************************
+- File Name      : Transactions.java
+- Author           : Capgemini
+- Creation Date    : 11-08-2020
+- Description      : This Model class contains all the transaction details.
+ ******************************************/
 import java.sql.Date;
 
 import javax.persistence.Column;

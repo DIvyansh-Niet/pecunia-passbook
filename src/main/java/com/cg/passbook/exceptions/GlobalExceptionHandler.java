@@ -1,4 +1,10 @@
-package com.pbs.exceptions;
+package com.cg.passbook.exceptions;
+/******************************************
+- File Name      : GlobalExceptionHandler.java
+- Author           : Capgemini
+- Creation Date    : 11-08-2020
+- Description      : This Exception class implements the controller advice and returns the exceptions messagr.
+ ******************************************/
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
