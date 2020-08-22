@@ -8,6 +8,8 @@ package com.cg.passbook.controller;
 import java.sql.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.cg.passbook.model.Account;
 import com.cg.passbook.model.Transactions;
 import com.cg.passbook.service.PassbookMaintenanceService;
@@ -30,6 +31,7 @@ import com.cg.passbook.service.PassbookMaintenanceService;
 @RequestMapping("/bank")
 @CrossOrigin(origins = "http://localhost:4200")
 public class PassbookController {
+	Logger logger = LoggerFactory.getLogger(PassbookController.class);
 
 	@Autowired
 	private PassbookMaintenanceService service;
@@ -48,12 +50,14 @@ public class PassbookController {
 	public ResponseEntity<List<Transactions>> accountSummary(@PathVariable String accountId, @PathVariable Date startDate, @PathVariable Date endDate) 
 	{
 		List<Transactions> list = service.accountSummary(accountId, startDate, endDate);
+		logger.info("Account Summary");
 		return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
 		}
 		
 	
 	@ResponseStatus(value=HttpStatus.NOT_FOUND,reason="Please enter Valid details")
 	@ExceptionHandler({Exception.class})
+	//this is the handle exception method
 	public void handleException() {
 		
 	}
